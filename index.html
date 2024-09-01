@@ -6,46 +6,58 @@
     <title>Daniel Abraham R | Portfolio</title>
     <!-- Bootstrap 4 CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             color: #333;
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            background-color: #e3f2fd; /* Light Blue Background */
+            scroll-behavior: smooth; /* Smooth Scrolling */
         }
         header {
-            background: #333;
+            background: #003b6f; /* Dark Blue */
             color: #fff;
-            padding: 2rem 0;
+            padding: 3rem 0;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 3rem;
+            font-weight: 600; /* Semi-Bold */
+        }
+        header p {
+            font-size: 1.25rem;
+            margin-top: 0.5rem;
         }
         nav {
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            background: #b3e5fc; /* Lighter Blue */
             padding: 1rem 0;
-            background: #f4f4f4;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem; /* Space between Navbar and Jumbotron */
         }
         nav a {
-            margin: 0 1rem;
-            color: #333;
+            margin: 0 1.5rem;
+            color: #003b6f; /* Dark Blue */
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600; /* Semi-Bold */
+            transition: color 0.3s ease;
+        }
+        nav a.active {
+            color: #0056b3; /* Slightly Brighter Blue */
+        }
+        nav a:hover {
+            color: #0056b3; /* Slightly Brighter Blue */
         }
         section {
-            padding: 2rem 0;
-        }
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            padding: 4rem 0;
         }
         .container {
             max-width: 960px;
@@ -54,26 +66,82 @@
         }
         .section-title {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600; /* Semi-Bold */
+            color: #003b6f; /* Dark Blue */
         }
-        .skills-box img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-        }
-        .skills-box h5 {
-            margin-top: 1rem;
+        .jumbotron {
+            background-color: #b3e5fc; /* Lighter Blue */
+            color: #003b6f; /* Dark Blue */
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-top: 2rem; /* Added margin-top to create space from navbar */
         }
         .shadow-container {
             padding: 2rem;
             background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
+        }
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: #b3e5fc; /* Lighter Blue */
+            z-index: 1000;
+        }
+        .progress-bar {
+            height: 100%;
+            background-color: #003b6f; /* Dark Blue */
+            width: 0;
+            transition: width 0.3s ease;
+        }
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        .card-img-top {
+            border-radius: 12px 12px 0 0;
+        }
+        .card-title {
+            color: #003b6f; /* Dark Blue */
+        }
+        .card-text {
+            color: #555;
+        }
+        .skills-box {
+            padding: 1rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        .skills-box img {
+            width: 100px; /* Adjust the width as needed */
+            height: auto;
+            margin-bottom: 1rem; /* Adds space between the image and text */
+        }
+        .skills-box h5 {
+            margin: 0.5rem 0;
+            color: #003b6f; /* Dark Blue */
+        }
+        .skills-box p {
+            color: #555;
         }
     </style>
 </head>
-<body>
+<body data-spy="scroll" data-target="#navbar" data-offset="60">
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div id="scroll-progress" class="progress-bar"></div>
+    </div>
 
     <!-- Header -->
     <header>
@@ -82,7 +150,7 @@
     </header>
 
     <!-- Navigation -->
-    <nav>
+    <nav id="navbar">
         <a href="#about">About Me</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
@@ -90,11 +158,11 @@
     </nav>
 
     <!-- About Me -->
-    <section id="about" class="container shadow-container">
-        <div class="section-title">
-            <h2>About Me</h2>
+    <section id="about" class="container">
+        <div class="jumbotron shadow-container">
+            <h1 class="display-4">About Me</h1>
+            <p class="lead">Hello! I'm Daniel Abraham R, a passionate AWS Data Engineer with over 2 years of experience working at TCS. I specialize in AWS services like Athena, Hadoop, DBT, and Apache Airflow. I enjoy solving complex data challenges and am always eager to learn and grow.</p>
         </div>
-        <p>Hello! I'm Daniel Abraham R, a passionate AWS Data Engineer with over 2 years of experience working at TCS. I specialize in AWS services like Athena, Hadoop, DBT, and Apache Airflow. I enjoy solving complex data challenges and am always eager to learn and grow.</p>
     </section>
 
     <!-- Projects -->
@@ -102,12 +170,26 @@
         <div class="section-title">
             <h2>Projects</h2>
         </div>
-        <p>Here are a few projects I've worked on:</p>
-        <ul>
-            <li><strong>Project Title 1:</strong> Description of your project. Explain what it does, the technologies you used, and the impact it had.</li>
-            <li><strong>Project Title 2:</strong> Description of your project. Explain what it does, the technologies you used, and the impact it had.</li>
-            <!-- Add more projects as needed -->
-        </ul>
+        <div class="row justify-content-center">
+            <div class="col-md-6 mb-4 d-flex justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Project 1 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Project Title 1</h5>
+                        <p class="card-text">Description of your project. Explain what it does, the technologies you used, and the impact it had.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 d-flex justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Project 2 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Project Title 2</h5>
+                        <p class="card-text">Description of your project. Explain what it does, the technologies you used, and the impact it had.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Skills -->
@@ -116,23 +198,23 @@
             <h2>Skills</h2>
         </div>
         <div class="row">
-            <div class="col-md-4 text-center">
+            <div class="col-md-4 text-center mb-4">
                 <div class="skills-box">
-                    <img src="https://via.placeholder.com/150" alt="AWS Cloud Services">
+                    <img src="AWS_logo.png" alt="AWS Cloud Services">
                     <h5>AWS Cloud Services</h5>
                     <p>Athena, Hadoop, DBT, Apache Airflow</p>
                 </div>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-md-4 text-center mb-4">
                 <div class="skills-box">
-                    <img src="https://via.placeholder.com/150" alt="Data Engineering">
+                    <img src="data.jpg" alt="Data Engineering">
                     <h5>Data Engineering</h5>
                     <p>ETL Processes, Data Pipelines</p>
                 </div>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-md-4 text-center mb-4">
                 <div class="skills-box">
-                    <img src="https://via.placeholder.com/150" alt="Programming">
+                    <img src="coding.jpg" alt="Programming">
                     <h5>Programming</h5>
                     <p>Python, SQL</p>
                 </div>
@@ -145,15 +227,23 @@
         <div class="section-title">
             <h2>Contact</h2>
         </div>
-        <p>If you'd like to get in touch, feel free to email me at <a href="mailto:abrahamsamuel3310@gmail.com">abrahamsamuel3310@gmail.com</a> or connect with me on <a href="https://www.linkedin.com/in/daniel-abraham-r/">LinkedIn</a>.</p>
+        <p>If you'd like to get in touch, feel free to email me at <a href="mailto:abrahamsamuel3310@gmail.com">abrahamsamuel3310@gmail.com</a> or connect with me on <a href="https://www.linkedin.com/in/daniel-abraham-r/">LinkedIn</a></p>
         <p>Mobile: <a href="tel:+918870301070">+91 8870301070</a></p>
     </section>
 
-
     <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <!-- JavaScript for Scroll Progress -->
+    <script>
+        document.addEventListener('scroll', function () {
+            const scrollProgress = document.getElementById('scroll-progress');
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollTop = window.scrollY;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
+    </script>
 </body>
 </html>
