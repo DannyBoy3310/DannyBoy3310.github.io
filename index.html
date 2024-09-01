@@ -7,19 +7,19 @@
     <!-- Bootstrap 4 CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             color: #333;
+            background-color: #f8f9fa; /* Light Gray Background */
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            background-color: #e3f2fd; /* Light Blue Background */
             scroll-behavior: smooth; /* Smooth Scrolling */
         }
         header {
-            background: #003b6f; /* Dark Blue */
+            background: #000; /* Black */
             color: #fff;
             padding: 3rem 0;
             text-align: center;
@@ -38,23 +38,23 @@
         nav {
             display: flex;
             justify-content: center;
-            background: #b3e5fc; /* Lighter Blue */
+            background: #fff; /* White */
             padding: 1rem 0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem; /* Space between Navbar and Jumbotron */
         }
         nav a {
             margin: 0 1.5rem;
-            color: #003b6f; /* Dark Blue */
+            color: #000; /* Black */
             text-decoration: none;
             font-weight: 600; /* Semi-Bold */
             transition: color 0.3s ease;
         }
         nav a.active {
-            color: #0056b3; /* Slightly Brighter Blue */
+            color: #333; /* Dark Gray */
         }
         nav a:hover {
-            color: #0056b3; /* Slightly Brighter Blue */
+            color: #333; /* Dark Gray */
         }
         section {
             padding: 4rem 0;
@@ -68,11 +68,11 @@
             text-align: center;
             margin-bottom: 3rem;
             font-weight: 600; /* Semi-Bold */
-            color: #003b6f; /* Dark Blue */
+            color: #000; /* Black */
         }
         .jumbotron {
-            background-color: #b3e5fc; /* Lighter Blue */
-            color: #003b6f; /* Dark Blue */
+            background-color: #e9ecef; /* Light Gray */
+            color: #000; /* Black */
             border-radius: 12px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             padding: 2rem;
@@ -80,7 +80,7 @@
         }
         .shadow-container {
             padding: 2rem;
-            background: #fff;
+            background: #fff; /* White */
             border-radius: 12px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
@@ -91,12 +91,12 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background-color: #b3e5fc; /* Lighter Blue */
+            background-color: #e9ecef; /* Light Gray */
             z-index: 1000;
         }
         .progress-bar {
             height: 100%;
-            background-color: #003b6f; /* Dark Blue */
+            background-color: #000; /* Black */
             width: 0;
             transition: width 0.3s ease;
         }
@@ -110,14 +110,14 @@
             border-radius: 12px 12px 0 0;
         }
         .card-title {
-            color: #003b6f; /* Dark Blue */
+            color: #000; /* Black */
         }
         .card-text {
-            color: #555;
+            color: #333; /* Dark Gray */
         }
         .skills-box {
             padding: 1rem;
-            background: #fff;
+            background: #fff; /* White */
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 1.5rem;
@@ -129,10 +129,10 @@
         }
         .skills-box h5 {
             margin: 0.5rem 0;
-            color: #003b6f; /* Dark Blue */
+            color: #000; /* Black */
         }
         .skills-box p {
-            color: #555;
+            color: #333; /* Dark Gray */
         }
     </style>
 </head>
@@ -166,14 +166,14 @@
     </section>
 
     <!-- Projects -->
-<!--     <section id="projects" class="container shadow-container">
+    <section id="projects" class="container shadow-container">
         <div class="section-title">
             <h2>Projects</h2>
         </div>
-        <div class="row justify-content-center">
+        <div class="row">
             <div class="col-md-6 mb-4 d-flex justify-content-center">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Project 1 Image">
+                <div class="card" style="width: 100%;">
+                    <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Project 1 Image">
                     <div class="card-body">
                         <h5 class="card-title">Project Title 1</h5>
                         <p class="card-text">Description of your project. Explain what it does, the technologies you used, and the impact it had.</p>
@@ -181,8 +181,8 @@
                 </div>
             </div>
             <div class="col-md-6 mb-4 d-flex justify-content-center">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Project 2 Image">
+                <div class="card" style="width: 100%;">
+                    <img src="https://via.placeholder.com/400x300" class="card-img-top" alt="Project 2 Image">
                     <div class="card-body">
                         <h5 class="card-title">Project Title 2</h5>
                         <p class="card-text">Description of your project. Explain what it does, the technologies you used, and the impact it had.</p>
@@ -190,7 +190,7 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
     <!-- Skills -->
     <section id="skills" class="container shadow-container">
